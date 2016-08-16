@@ -10,6 +10,7 @@ layout: master
   <ul class="post-list">
     {% assign pages = site.pages | sort: 'audio_file' %}
     {% for my_page in pages %}{% if (my_page.section_title != null) and my_page.type == 'stop' %}<li>
+        {% if my_page.stop_id contains 'R' or my_page.stop_id contains 'G' or my_page.stop_id contains 'Y' %}{% continue %}{% endif %}
         <a class="post-link" href="{{ my_page.url | prepend: site.baseurl }}" style="background-image: url('{{ site.baseurl }}{{ site.headphones_icon_color }}');">
           <span class="post-item">{{ my_page.stop_id }}</span>
         </a>

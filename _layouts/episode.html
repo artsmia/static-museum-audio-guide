@@ -28,6 +28,17 @@ layout: master_episode
   {% endif %}
   <div class="post-content">
     {{ content }}
+    {% if page.colors != null %}
+      <div class="colors">
+        {% for color in page.colors %}
+          <div class="{{color[0]}}">
+            <a href="{{ page.stop_id }}{{color[0] | split:'' | first | upcase}}" style="color: {{color[0]}};">{{color[1].name}}</a>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+    <a href="{{ page.stop_id | split:'' | first | upcase}}">Back to parent stop</a>
+    {% endif %}
   </div>
 
 </article>
